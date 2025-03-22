@@ -1,0 +1,83 @@
+/* OrderPage.css */
+
+/* Стили для заголовка "Доставка" */
+.delivery-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-variant-numeric: lining-nums proportional-nums;
+    color: #2d2d2f;
+}
+
+/* Контейнер формы и блока с общей стоимостью */
+.order-container {
+    max-width: 900px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Блок с общей стоимостью */
+.summary-block {
+    background: #f0f4fb;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Строка в блоке с общей стоимостью */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* Разделитель */
+.divider {
+    border-bottom: 1px solid #d3d9e4;
+    margin-bottom: 16px;
+}
+
+/* Кнопка "Сделать заказ" */
+.order-button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    background: #2967ff;
+}
+
+.order-button:hover {
+    background: #1e4db7;
+}
+
+/* Стили для текста */
+.summary-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #2d2d2f;
+}
+
+.summary-text-bold {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #2d2d2f;
+}
+
+.summary-text-total {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #2d2d2f;
+}

@@ -1,0 +1,66 @@
+.banner-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    /* Высота контейнера */
+    overflow: hidden;
+    /* Скрываем выходящие за пределы элементы */
+}
+
+.horizontal-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    /* Растягиваем картинку на весь контейнер */
+    z-index: 10;
+    /* Картинка на заднем плане */
+}
+
+.vertical-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    /* Ширина вертикальной картинки */
+    /* Высота вертикальной картинки */
+  
+    /* Сохраняем пропорции */
+    z-index: 5;
+    /* Картинка на переднем плане */
+    border: 5px solid white;
+    /* Белая рамка для выделения */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Тень для эффекта */
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 11;
+    /* Текст поверх картинок */
+    background: rgba(0, 0, 0, 0.5);
+    /* Полупрозрачный фон для текста */
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.banner-text h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.banner-text p {
+    font-size: 1.2rem;
+    margin: 10px 0 0;
+}

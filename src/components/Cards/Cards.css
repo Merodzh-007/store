@@ -1,0 +1,22 @@
+
+.button{
+    
+        border-radius: 26px;
+        border-width: 1px;
+        width: 100%;
+                height: 35px;
+        color: #2967FF;
+        background-color: white;
+        border: 1px solid #2967FF
+}
+.price{
+    font-family: Raleway;
+        font-weight: 600;
+        font-size: 20px;
+        color: #2967FF;
+        line-height: 130%;
+        letter-spacing: 0%;
+        font-variant-numeric-figure: lining-nums;
+        font-variant-numeric-spacing: proportional-nums;
+padding: 5px;        
+}

@@ -1,0 +1,99 @@
+.sider-container {
+    background: white;
+    border: 1px solid #f0f4fb;
+   
+    /* Фиксированная ширина Sider */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sider-content {
+    border: 1px solid #ff2d87;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    margin: 16px;
+    width: 90%;
+    /* Ширина контейнера 90% от Sider */
+    max-width: 100%;
+    /* Ограничение по ширине */
+}
+
+.sider-image {
+    width: 120px;
+    /* Ширина картинки 25% от контейнера */
+    height: auto;
+    /* Сохраняем пропорции */
+    /* Скругление углов */
+}
+
+.sider-text {
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+    color: #2967FF;
+    width: 70%;
+    /* Ширина текста 70% от контейнера */
+}
+
+.sider-button {
+    
+    /* Кнопка занимает всю ширину контейнера */
+}
+
+/* Медиа-запросы для адаптации */
+@media (max-width: 768px) {
+    .sider-container {
+        width: 250px;
+        /* Уменьшаем ширину Sider на маленьких экранах */
+    }
+
+    .sider-content {
+        flex-direction: column;
+        /* Картинка и текст в колонку */
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .sider-image {
+        width: 50%;
+        /* Увеличиваем ширину картинки на маленьких экранах */
+    }
+
+    .sider-text {
+        width: 100%;
+        /* Текст занимает всю ширину */
+        font-size: 18px;
+        /* Уменьшаем размер текста */
+    }
+
+    .sider-button {
+        font-size: 14px;
+        /* Уменьшаем размер текста кнопки */
+    }
+}
+
+@media (max-width: 480px) {
+    .sider-container {
+        width: 200px;
+        /* Еще меньше ширина Sider на очень маленьких экранах */
+    }
+
+    .sider-text {
+        font-size: 16px;
+        /* Еще меньше размер текста */
+    }
+
+    .sider-button {
+        font-size: 12px;
+        /* Еще меньше размер текста кнопки */
+    }
+}

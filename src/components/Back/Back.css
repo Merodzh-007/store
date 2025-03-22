@@ -1,0 +1,40 @@
+/* Стили для кнопки "Назад" */
+.back-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+.back-arrow {
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+.back-arrow-line {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: #2967ff;
+    top: 50%;
+    left: 0;
+    transform-origin: left center;
+}
+
+.back-arrow-line:first-child {
+    transform: rotate(-45deg) translateY(-50%);
+}
+
+.back-arrow-line:last-child {
+    transform: rotate(45deg) translateY(-50%);
+}
+
+.back-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: #2967ff;
+    
+}

@@ -1,0 +1,115 @@
+/* Запрет выделения текста */
+.no-select {
+    user-select: none;
+    /* Запрет выделения текста */
+    -webkit-user-select: none;
+    /* Для Safari */
+    -moz-user-select: none;
+    /* Для Firefox */
+    -ms-user-select: none;
+    /* Для IE/Edge */
+}
+
+
+/* Стили для картинки */
+.product-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Стили для информации о товаре */
+.product-info {
+    background: #f0f4fb;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.product-name {
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.price-container {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+
+.price {
+font-family: Raleway;
+color: #2D2D2F;
+    font-weight: 700;
+    
+    line-height: 128%;
+    letter-spacing: 0%;
+    vertical-align: bottom;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+}
+
+.price-unit {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #666;
+}
+
+/* Стили для кнопки "В корзину" */
+.add-to-cart-button {
+    width: 80%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: center;
+    font-variant-numeric: lining-nums proportional-nums;
+    height: 50px;
+    background: #2967ff;
+    border: none;
+    border-radius: 51px;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background: #1e4fcc;
+}
+
+.add-to-cart-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Стили для описания */
+.product-description {
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #333;
+    cursor: pointer;
+}
+
+.product-description.expanded {
+    -webkit-line-clamp: unset;
+}
