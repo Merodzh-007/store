@@ -73,9 +73,9 @@ const CartPage: React.FC = observer(() => {
                 <Typography>{item.name}</Typography>
               </Box>
               <Box className="quantity-control">
-                <button onClick={() => handleDecrease(item.productId)}>-</button>
+                <button style={{border: 'none'}} onClick={() => handleDecrease(item.productId)}>-</button>
                 <Typography>{item.quantity}</Typography>
-                <button onClick={() => handleIncrease(item.productId)}>+</button>
+                <button style={{border: 'none'}} onClick={() => handleIncrease(item.productId)}>+</button>
               </Box>
               <Typography className="product-price">{item.price} руб.</Typography>
             </Box>

@@ -8,13 +8,20 @@ import Typography from '@mui/material/Typography';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import './Cards.css';
-import categoryStore from '../../store/store';
 
-const Cards = ({ text, name, imageUrl, price, click, onClick, check }) => {
+interface ICardsProps {
+  text: string; 
+  name: string; 
+  imageUrl: string;
+  price: number; 
+  click: () => void; 
+  onClick: () => void; 
+}
+const Cards :React.FC<ICardsProps> =  ({ text, name, imageUrl, price, click, onClick }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isExpandedName, setIsExpandedName] = useState(false);
-  const [openSnackbar, setOpenSnackbar] = useState(false); // Состояние для Snackbar
-  const { addToCart } = categoryStore;
+  const [openSnackbar, setOpenSnackbar] = useState(false); 
+
 
   const handleAddToCart = () => {
     onClick(); // Вызов функции добавления в корзину

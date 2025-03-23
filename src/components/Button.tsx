@@ -1,4 +1,8 @@
-const Button = ({ children }) => {
+
+interface IButton {
+    children: string
+}
+const Button: React.FC<IButton> = ({ children }) => {
     return (
         <button
             style={{

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Badge from 'react-bootstrap/Badge';
 import Stack from 'react-bootstrap/Stack';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import categoryStore from "../store/store";
 import { observer } from 'mobx-react-lite';
 import { Box, Container } from "@mui/material";
@@ -21,9 +20,7 @@ const MainPage = observer(() => {
   }, []);
 console.log(shoppingCart);
 
-   const isProductInCart = (productId:number) => {
-    return shoppingCart.some(item => item.productId === productId);
-  };
+   
   
   return (
     <Container>
@@ -87,7 +84,7 @@ console.log(shoppingCart);
                   text={item.description}
                   imageUrl={productImages[item.id]}
                   price={priceProduct[item.id]}
-                  check={isProductInCart(item.id)}
+                 
                 />
               </Col>
             ))

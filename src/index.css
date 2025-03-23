@@ -129,3 +129,13 @@ table {
   border-spacing: 0;
 }
 
+html{
+    user-select: none;
+      /* Запрещает выделение текста */
+      -webkit-user-select: none;
+      /* Для поддержки в Safari */
+      -moz-user-select: none;
+      /* Для поддержки в Firefox */
+      -ms-user-select: none;
+      /* Для поддержки в старых версиях IE */
+}

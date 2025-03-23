@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Typography, Box, Paper, Container, Modal } from "@mui/material";
 import categoryStore from "../store/store";
 import {IHistory, ICartItem} from '../store/store'

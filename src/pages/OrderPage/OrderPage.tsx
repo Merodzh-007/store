@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Form, Input, Button, DatePicker, message } from "antd";
 import "antd/dist/reset.css";
 import { Container, Typography } from "@mui/material";
@@ -6,6 +6,7 @@ import categoryStore from "../../store/store";
 import "./OrderPage.css";
 import { useNavigate } from "react-router";
 import moment from "moment";
+import Back from "../../components/Back/Back";
 const { Item } = Form;
 const { TextArea } = Input;
 
@@ -76,6 +77,7 @@ const OrderPage = () => {
 
   return (
     <Container>
+      <Back />
       <Typography className="delivery-title">Доставка</Typography>
       <div className="order-container">
         <Form

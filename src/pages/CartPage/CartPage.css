@@ -32,11 +32,12 @@
 
 .cart-title {
     font-family: Raleway;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    font-variant-numeric: lining-nums proportional-nums;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        font-variant-numeric-figure: lining-nums;
+        font-variant-numeric-spacing: proportional-nums;
 }
 
 .cart-total {
@@ -119,9 +120,10 @@
 }
 
 .product-imageCart {
-    width: 150px;
+    width: 100px;
     max-width: 100%;
     margin-right: 10px;
+    object-fit: cover;
     cursor: pointer;
 }
 
@@ -176,18 +178,11 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 8px;
-    border: 1px solid #e0e0e0;
+    padding: 12px;
+    border-bottom: 1px solid #aec2ea;
     border-radius: 8px;
 }
 
-.product-imageCart {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-}
 
 .product-name {
     flex: 1;

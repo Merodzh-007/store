@@ -10,16 +10,21 @@ import { TransitionProps } from '@mui/material/transitions';
 import { useNavigate } from 'react-router';
 import categoryStore from '../store/store';
 
+
+interface IAlertDialogSlide {
+  check: boolean;
+  onClose: () => void
+}
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
-    children: React.ReactElement<any, any>;
+    children: React.ReactElement;
   },
   ref: React.Ref<unknown>,
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide({ check, onClose }) {
+const AlertDialogSlide :React.FC<IAlertDialogSlide> = ({ check, onClose }) => {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate()
   const {calculateTotal} = categoryStore
@@ -58,3 +63,4 @@ export default function AlertDialogSlide({ check, onClose }) {
     </Dialog>
   );
 }
+export default AlertDialogSlide

@@ -1,7 +1,11 @@
 import React from "react";
 import basket from "../assets/Basket.png";
 
-const CartIcon = ({ count, click }) => {
+interface ICArIcon {
+  count: number,
+  click: () => void
+}
+const CartIcon :React.FC<ICArIcon> = ({ count, click }) => {
   return (
     <div
       style={{
