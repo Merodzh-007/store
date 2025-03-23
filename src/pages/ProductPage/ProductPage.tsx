@@ -5,19 +5,7 @@ import { Typography, Grid, Box, Container } from "@mui/material";
 import "./ProductPage.css";
 import Back from "../../components/Back/Back";
 
-interface IProduct {
-  id: number;
-  name: string;
-  description: string;
-}
 
-interface IProductImage {
-  image_url: string;
-}
-
-interface IProductPrice {
-  price: number;
-}
 
 const ProductPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -54,9 +42,9 @@ const ProductPage = () => {
     return str;
   };
 
-  const product = productOne[0] as IProduct;
-  const productImage = productOne[1] as IProductImage;
-  const productPrice = productOne[2] as IProductPrice;
+  const product = productOne[0];
+  const productImage = productOne[1];
+  const productPrice = productOne[2];
 
   return (
     <Container className="no-select">

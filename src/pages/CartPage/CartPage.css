@@ -165,3 +165,78 @@
     font-variant-numeric: lining-nums proportional-nums;
     color: #2d2d2f;
 }
+.cart-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.product-imageCart {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.product-name {
+    flex: 1;
+    cursor: pointer;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-control button {
+    padding: 4px 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.product-price {
+    font-weight: 500;
+}
+
+.delete-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* Мобильные стили */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .product-imageCart {
+        width: 100%;
+        height: auto;
+    }
+
+    .quantity-control {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .delete-icon {
+        align-self: flex-end;
+    }
+}

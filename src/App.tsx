@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Layout, theme } from 'antd';
+import React from 'react';
+import { Layout, } from 'antd';
 import Header from './components/Header';
 import AppRoutes from './routes/routes';
 import 'bootstrap/dist/css/bootstrap.min.css';

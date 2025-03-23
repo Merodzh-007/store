@@ -21,7 +21,7 @@ const MainPage = observer(() => {
   }, []);
 console.log(shoppingCart);
 
-   const isProductInCart = (productId) => {
+   const isProductInCart = (productId:number) => {
     return shoppingCart.some(item => item.productId === productId);
   };
   

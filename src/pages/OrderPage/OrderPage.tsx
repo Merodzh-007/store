@@ -5,10 +5,16 @@ import { Container, Typography } from "@mui/material";
 import categoryStore from "../../store/store";
 import "./OrderPage.css";
 import { useNavigate } from "react-router";
-
+import moment from "moment";
 const { Item } = Form;
 const { TextArea } = Input;
 
+interface Ivalues{
+  address: string;
+  name: string;
+  phone: string;
+  dateTime: Date;
+}
 const OrderPage = () => {
   const { calculateTotal, shoppingCart, clearCart, addToHistory } = categoryStore;
   const [form] = Form.useForm();
@@ -18,7 +24,9 @@ const OrderPage = () => {
     return Math.floor(1000 + Math.random() * 9000);
   };
 
-  const onFinish = (values) => {
+  const onFinish = (values: Ivalues) => {
+    console.log(values);
+    
     if (shoppingCart.length === 0) {
       message.error("Корзина пуста. Добавьте товары перед оформлением заказа.");
       return;
@@ -28,7 +36,7 @@ const OrderPage = () => {
 
   
     const orderDetails = {
-      time: values.dateTime.format("YYYY-MM-DD HH:mm"),
+      time: moment(values.dateTime).format("YYYY-MM-DD HH:mm"),
       status: true, 
       address: values.address, 
       items: shoppingCart.map((item) => ({
@@ -37,6 +45,7 @@ const OrderPage = () => {
         price: item.price,
         name: item.name,
       })),
+      
       number: generateRandomFourDigitNumber(),
       total: (parseFloat(calculateTotal) + 200).toFixed(2), 
     };

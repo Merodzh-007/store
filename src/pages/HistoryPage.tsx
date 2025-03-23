@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Typography, Box, Paper, Container, Modal } from "@mui/material";
 import categoryStore from "../store/store";
+import {IHistory, ICartItem} from '../store/store'
+
 
 const HistoryPage = () => {
   const [openValue, setOpenValue] = useState(false);
-  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [selectedOrder, setSelectedOrder] = useState<IHistory | null>(null);
   const { history } = categoryStore;
-
 
   const orderContainerStyle = {
     border: "1px solid #e0e0e0",
@@ -23,12 +24,10 @@ const HistoryPage = () => {
     color: "#2D2D2F",
   };
 
-
   const subtitleStyle = {
     fontSize: "14px",
     color: "#8D8D8E",
   };
-
 
   const valueStyle = {
     fontSize: "16px",
@@ -36,19 +35,17 @@ const HistoryPage = () => {
     fontWeight: "500",
   };
 
-  const statusStyle = (status) => ({
+  const statusStyle = (status: boolean) => ({
     fontSize: "16px",
     color: status ? "#4CAF50" : "#FFA000",
     fontWeight: "500",
   });
 
-
-  const handleOpenDetails = (order) => {
+  const handleOpenDetails = (order: IHistory) => {
     setSelectedOrder(order);
     setOpenValue(true);
   };
 
-  
   const handleCloseDetails = () => {
     setOpenValue(false);
     setSelectedOrder(null);
@@ -56,7 +53,6 @@ const HistoryPage = () => {
 
   return (
     <Container>
- 
       <Modal open={openValue} onClose={handleCloseDetails}>
         <Box
           sx={{
@@ -77,7 +73,7 @@ const HistoryPage = () => {
           {selectedOrder && (
             <>
               <Typography style={subtitleStyle}>Товары:</Typography>
-              {selectedOrder.items.map((item, index) => (
+              {selectedOrder.items.map((item: ICartItem, index: number) => (
                 <Box key={index} sx={{ marginTop: "8px" }}>
                   <Typography style={valueStyle}>
                     {item.name} - {item.quantity} шт. × {item.price.toFixed(2)} руб.
@@ -89,7 +85,6 @@ const HistoryPage = () => {
         </Box>
       </Modal>
 
-      
       <Box sx={{ padding: "24px", maxWidth: "800px", margin: "0 auto" }}>
         <Typography variant="h4" gutterBottom>
           История заказов
@@ -98,9 +93,8 @@ const HistoryPage = () => {
         {history.length === 0 ? (
           <Typography variant="body1">Заказов пока нет.</Typography>
         ) : (
-          history.map((order, index) => (
+          history.map((order: IHistory, index: number) => (
             <Paper key={index} style={orderContainerStyle}>
-           
               <Box
                 sx={{
                   display: "flex",
@@ -148,7 +142,7 @@ const HistoryPage = () => {
               <Box style={{ display: "flex", justifyContent: "space-between" }}>
                 <Box sx={{ marginBottom: "16px" }}>
                   <Typography style={subtitleStyle}>Товары:</Typography>
-                  {order.items.map((item, itemIndex) => (
+                  {order.items.map((item: ICartItem, itemIndex: number) => (
                     <Box key={itemIndex} sx={{ marginTop: "8px" }}>
                       <Typography style={valueStyle}>
                         Кол-во {item.quantity} шт. × {item.price.toFixed(2)} руб.

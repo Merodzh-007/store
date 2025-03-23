@@ -7,6 +7,19 @@ interface ICategories {
   parent_id: number;
 }
 
+interface IProductImg {
+  id: number;
+  name: string;
+  image_name: string;
+  product_id: number;
+  image_url: string;
+}
+interface IProducPrice {
+  id: number;
+  price: number;
+  stock: number;
+  product_id: number;
+}
 interface IProductsCategory {
   id: number;
   name: string;
@@ -14,23 +27,21 @@ interface IProductsCategory {
   description: string;
 }
 
-interface ICartItem {
+export interface ICartItem {
   productId: number;
-  name: string;
-  image: string;
-  price: number;
   quantity: number;
-}
-interface IHistory {
-  productId: number;
-  status: boolean;
-  time: string;
-  quantity: string;
-  items: [];
   price: number;
-  adress: string;
-  number: number;
   name: string;
+  image?: string
+}
+
+export interface IHistory {
+  time: string;
+  status: boolean;
+  address: string;
+  items: ICartItem[]; // Поля productId, quantity, price, name находятся внутри items
+  number: number; // Измените тип на number, если number в объекте является числом
+  total: string; // Или измените тип на number, если total в объекте является числом
 }
 
 class CategoryStore {
@@ -41,7 +52,7 @@ class CategoryStore {
   hasMore: boolean = true;
   index: number = 0;
   currentCategoryId: number | string = '';
-  productOne = [];
+ productOne: [IProductsCategory, IProductImg, IProducPrice] | [] = [];
 
 
 
@@ -79,13 +90,13 @@ class CategoryStore {
       this.index = index; 
       this.hasMore = true; 
 
-      let rangeStart = index * 10;
-      let rangeEnd = rangeStart + 9;
+      const rangeStart = index * 10;
+      const rangeEnd = rangeStart + 9;
 
       const rangeString = JSON.stringify([rangeStart, rangeEnd]);
 
       let url = `https://test2.sionic.ru/api/Products?range=${rangeString}`;
-      if (typeof categoryId === 'number' && categoryId !== '') {
+      if (typeof categoryId === 'number') {
         url += `&filter={"category_id":${categoryId}}`;
       }
 
@@ -146,7 +157,7 @@ class CategoryStore {
 
   getOneProduct = action(async (productID: number) => {
     try {
-      const resValue = await axios.get(`https://test2.sionic.ru/api/Products?filter={"id":${productID}}`);
+      const resValue= await axios.get(`https://test2.sionic.ru/api/Products?filter={"id":${productID}}`);
       const resImg = await axios.get(`https://test2.sionic.ru/api/ProductImages?filter={"product_id":${productID}}`);
       const resPrice = await axios.get(`https://test2.sionic.ru/api/ProductVariations?filter={"product_id":${productID}}`);
       this.productOne = [resValue.data[0], resImg.data[0], resPrice.data[0]];
@@ -168,7 +179,8 @@ class CategoryStore {
 
 
   removeFromCart = action((productId: number) => {
-    this.shoppingCart.replace(this.shoppingCart.filter(item => item.productId !== productId));
+    const newCart = this.shoppingCart.filter(item => item.productId !== productId)
+    this.shoppingCart = newCart
   });
 
   
@@ -181,7 +193,8 @@ class CategoryStore {
 
 
   clearCart = action(() => {
-    this.shoppingCart.clear();
+    const newCart =  this.shoppingCart.filter(item => item.name === '')
+    this.shoppingCart = newCart
   });
 saveCartToLocalStorage = () => {
   localStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
@@ -193,7 +206,7 @@ saveCartToLocalStorage = () => {
   loadCartFromLocalStorage = () => {
     const cartData = localStorage.getItem('shoppingCart');
     if (cartData) {
-      this.shoppingCart.replace(JSON.parse(cartData));
+      this.shoppingCart = JSON.parse(cartData)
     }
   };
   get calculateTotal() {
@@ -216,7 +229,7 @@ saveCartToLocalStorage = () => {
     try {
       const data = await localStorage.getItem('historyOrder');
       if (data) {
-      this.history.replace(JSON.parse(data));
+      this.history = JSON.parse(data)
     }
     } catch (error) {
       console.log('error', error);
